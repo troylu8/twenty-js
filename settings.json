@@ -1,0 +1,12 @@
+{
+    "working-duration": 3605000,
+    "resting-duration": 3000,
+    "working-start-notif": "started working timer",
+    "working-end-notif": "working session over",
+    "resting-start-notif": "started resting timer",
+    "resting-end-notif": "resting session over",
+    "start-chime": "default start.mp3",
+    "end-chime": "default end.mp3",
+    "volume": 53,
+    "muted": false
+}

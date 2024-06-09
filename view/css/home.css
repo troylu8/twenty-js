@@ -1,0 +1,16 @@
+#home {
+    position: relative;
+}
+
+#time {
+    position: absolute;
+    background-color: lightcoral;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#status {
+    bottom: 0;
+}

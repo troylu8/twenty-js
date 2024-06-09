@@ -1,0 +1,58 @@
+#settings > v-flex {
+    gap: 10px;
+}
+
+time-input input {
+    text-align: right;
+}
+
+time-input input, time-colon {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+time-colon {
+    margin: 0 3px;
+}
+
+audio-input h-flex {
+    gap: 10px;
+}
+
+input[type='range'] {
+    border-radius: 8px;
+    height: 4px;
+    outline: none;
+    -webkit-appearance: none;
+}
+input[type='range']::-webkit-slider-thumb {
+    width: 4px;
+    -webkit-appearance: none;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+input[type='checkbox'] {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+input[type='checkbox']::before {
+    content: "";
+    box-sizing: border-box;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    outline: solid 2px blue;
+
+    border-radius: 5px;
+
+    align-self: center;
+}
+input[type='checkbox']:checked::before {
+    background-color: blue;
+    border: solid 3px white;
+    outline: solid 2px blue;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/settings.css">
+        <link rel="stylesheet" href="css/general.css">
+
+        <script type="module" src="../src/pages.js"></script>
+        <script type="module" src="../src/time.js"></script>
+        <script type="module" src="../src/settings.js"></script>
+        <script type="module" src="../src/audio.js"></script>
+    </head>
+
+    <body>
+        <nav id="main-nav">
+            <page-tab id="tab#home">home</page-tab>
+            <h-flex>
+                <page-tab id="tab#settings" active>settings</page-tab>
+                <page-tab id="tab#help">help</page-tab>
+            </h-flex>
+        </nav>
+
+        <page-main id="home">
+            
+            <div id="time"> 
+                <span>0:00</span> 
+                <h-flex center class="h-abs-center">
+                    <button id="play">play</button>
+                    <button id="ff">ff</button>
+                </h-flex>
+            </div>
+
+            <p id="status" class="h-abs-center">currently working</p>
+            
+        </page-main>
+        
+        <page-main id="settings" active>
+            <v-flex>
+                <time-input id="timeinput#working">
+                    <p>edit screen time</p>
+                    <h-flex center>
+                        <input type="text" maxlength="2" size="2" class="time__sect">
+                        <time-colon>:</time-colon>
+                        <input type="text" maxlength="2" size="2" class="time__sect">
+                        <time-colon>:</time-colon>
+                        <input type="text" maxlength="2" size="2" class="time__sect">
+                    </h-flex>
+                </time-input>
+
+                <time-input id="timeinput#resting">
+                    <p>edit rest time</p>
+                    <h-flex center>
+                        <input type="text" maxlength="2" size="2" class="time__sect">
+                        <time-colon>:</time-colon>
+                        <input type="text" maxlength="2" size="2" class="time__sect">
+                        <time-colon>:</time-colon>
+                        <input type="text" maxlength="2" size="2" class="time__sect">
+                    </h-flex>
+                </time-input>
+
+                <v-flex id="notifications">
+                    <h1>edit notifications</h1>
+                    <input type="text" id="working-start-notif">
+                    <input type="text" id="working-end-notif">
+                    <input type="text" id="resting-start-notif">
+                    <input type="text" id="resting-end-notif">
+                </v-flex>
+
+                <audio-input id="audioinput#start">
+                    <h-flex center>
+                        <input type="checkbox" id="timer start">
+                        <button>edit timer start sound</button>
+                        <p> current: default start.wav </p>
+                    </h-flex>
+                </audio-input>
+
+                <audio-input id="audioinput#end">
+                    <h-flex center>
+                        <input type="checkbox" id="timer end">
+                        <button>edit timer end sound</button>
+                        <p> current: default end.wav </p>
+                    </h-flex>
+                </audio-input>
+
+
+                <h-flex center>
+                    <svg stroke="var(--accent)" width="25px" height="25px" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M16 9V9C17.2111 10.8167 17.2111 13.1833 16 15V15" stroke-linecap="round"/>
+                        <path d="M20 8V8C21.259 10.5181 21.259 13.4819 20 16V16" stroke-linecap="round"/>
+                        <path d="M7.4172 8.65233L10.5397 6.05023C11.5167 5.23607 13 5.93081 13 7.20256V16.7974C13 18.0692 11.5167 18.7639 10.5397 17.9498L7.4172 15.3477C7.14763 15.123 6.80783 15 6.45693 15H4.5C3.67157 15 3 14.3284 3 13.5V10.5C3 9.67157 3.67157 9 4.5 9H6.45693C6.80783 9 7.14763 8.87698 7.4172 8.65233Z" />
+                    </svg>
+                    <input id="volume-input" class="slider" type="range" min="0" value="50" max="100" />
+                </h-flex>
+
+                
+            </v-flex>
+        </page-main>
+
+        <page-main id="help">
+            help
+        </page-main>
+
+    </body>
+</html>

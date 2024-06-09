@@ -1,0 +1,77 @@
+:root {
+    --accent: rgb(103, 107, 166);
+}
+
+h-flex {
+    display: flex;
+}
+h-flex[reverse] {
+    flex-direction: row-reverse;
+}
+v-flex {
+    display: flex;
+    flex-direction: column;
+}
+v-flex[reverse] {
+    flex-direction: column-reverse;
+}
+h-flex[center], v-flex[center] {
+    align-items: center;
+}
+        
+page-tab, button {
+    background-color: white;
+    color: var(--accent);
+
+    padding: 4px 5px;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+page-tab[active], button {
+    background-color: var(--accent);
+    color: white;
+}
+
+button, button:active {
+    border: none;
+}
+
+page-main {
+    display: none;
+    height: 100%;
+}
+page-main[active] {
+    display: block;
+}
+
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    user-select: none;
+}
+
+p {
+    margin: 0;
+}
+
+.h-abs-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
