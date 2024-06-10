@@ -45,14 +45,34 @@ input[type='checkbox']::before {
     width: 20px;
     height: 20px;
     background-color: white;
-    outline: solid 2px blue;
+    outline: solid 2px var(--accent);
 
     border-radius: 5px;
 
     align-self: center;
 }
 input[type='checkbox']:checked::before {
-    background-color: blue;
+    background-color: var(--accent);
     border: solid 3px white;
-    outline: solid 2px blue;
+    outline: solid 2px var(--accent);
+}
+
+#shortcuts-grid {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px 5px;
+    align-items: center;
+}
+
+key-shortcut {
+    background-color: var(--accent);
+    color: white;
+    padding: 4px 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+
+    font-family: 'Courier New', Courier, monospace;
+
+    justify-self: end;
 }

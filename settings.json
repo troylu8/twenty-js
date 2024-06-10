@@ -1,12 +1,17 @@
 {
     "working-duration": 3605000,
     "resting-duration": 3000,
-    "working-start-notif": "started working timer",
+    "working-start-notif": "hdfgjo;",
     "working-end-notif": "working session over",
     "resting-start-notif": "started resting timer",
     "resting-end-notif": "resting session over",
+    "working-start-notif-enabled": true,
+    "working-end-notif-enabled": true,
+    "resting-start-notif-enabled": true,
+    "resting-end-notif-enabled": true,
     "start-chime": "default start.mp3",
     "end-chime": "default end.mp3",
-    "volume": 53,
-    "muted": false
+    "start-chime-enabled": true,
+    "end-chime-enabled": true,
+    "volume": 77
 }

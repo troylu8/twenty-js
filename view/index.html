@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/clock.css">
         <link rel="stylesheet" href="css/settings.css">
         <link rel="stylesheet" href="css/general.css">
 
@@ -14,20 +14,25 @@
 
     <body>
         <nav id="main-nav">
-            <page-tab id="tab#home">home</page-tab>
+            <page-tab id="tab#clock">clock</page-tab>
             <h-flex>
                 <page-tab id="tab#settings" active>settings</page-tab>
                 <page-tab id="tab#help">help</page-tab>
             </h-flex>
         </nav>
 
-        <page-main id="home">
+        <page-main id="clock">
             
             <div id="time"> 
                 <span>0:00</span> 
                 <h-flex center class="h-abs-center">
-                    <button id="play">play</button>
-                    <button id="ff">ff</button>
+                    <button id="play"></button>
+                    <button id="ff">
+                        <svg width="25px" height="25px" viewBox="0 0 24 24" fill="white">
+                            <path transform="translate(-3, 0)" d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z"/>
+                            <path transform="translate(3, 0)" d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z"/>
+                        </svg>
+                    </button>
                 </h-flex>
             </div>
 
@@ -61,15 +66,27 @@
 
                 <v-flex id="notifications">
                     <h1>edit notifications</h1>
-                    <input type="text" id="working-start-notif">
-                    <input type="text" id="working-end-notif">
-                    <input type="text" id="resting-start-notif">
-                    <input type="text" id="resting-end-notif">
+                    <h-flex center>
+                        <input type="checkbox" id="working-start-notif-enabled">
+                        <input type="text" id="working-start-notif">
+                    </h-flex>
+                    <h-flex center>
+                        <input type="checkbox" id="working-end-notif-enabled">
+                        <input type="text" id="working-end-notif">
+                    </h-flex>
+                    <h-flex center>
+                        <input type="checkbox" id="resting-start-notif-enabled">
+                        <input type="text" id="resting-start-notif">
+                    </h-flex>
+                    <h-flex center>
+                        <input type="checkbox" id="resting-end-notif-enabled">
+                        <input type="text" id="resting-end-notif">
+                    </h-flex>
                 </v-flex>
 
                 <audio-input id="audioinput#start">
                     <h-flex center>
-                        <input type="checkbox" id="timer start">
+                        <input type="checkbox" id="start-chime-enabled">
                         <button>edit timer start sound</button>
                         <p> current: default start.wav </p>
                     </h-flex>
@@ -77,7 +94,7 @@
 
                 <audio-input id="audioinput#end">
                     <h-flex center>
-                        <input type="checkbox" id="timer end">
+                        <input type="checkbox" id="end-chime-enabled">
                         <button>edit timer end sound</button>
                         <p> current: default end.wav </p>
                     </h-flex>
@@ -98,7 +115,14 @@
         </page-main>
 
         <page-main id="help">
-            help
+            <p>the 20 20 20 rule blurb</p>
+            <h1>keyboard shortcuts</h1>
+            <div id="shortcuts-grid">
+                <key-shortcut> ctrl + alt + space </key-shortcut>
+                <p> play/pause </p>
+                <key-shortcut> ctrl + alt + right </key-shortcut>
+                <p> fast forward </p>
+            </div>
         </page-main>
 
     </body>

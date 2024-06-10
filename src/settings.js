@@ -48,9 +48,16 @@ export let settings;
     }
 
 
-    for (const textInput of document.getElementById("notifications").querySelectorAll("input")) {
-        textInput.addEventListener("input", () => settings[textInput.id] = textInput.value);
-        textInput.value = settings[textInput.id];
+    for (const status of ["working", "resting"]) {
+        for (const time of ["start", "end"]) {
+            const textInput = document.getElementById(`${status}-${time}-notif`);
+            textInput.addEventListener("input", () => settings[textInput.id] = textInput.value);
+            textInput.value = settings[textInput.id];
+
+            const checkbox = document.getElementById(`${status}-${time}-notif-enabled`);
+            checkbox.addEventListener("change", () => settings[checkbox.id] = checkbox.checked);
+            checkbox.checked = settings[checkbox.id];
+        }
     }
 
     for (const time of ["start", "end"]) {
@@ -74,17 +81,19 @@ export let settings;
                 
             settings[time + "-chime"] = basename(dialog.filePaths[0]);
         });
+
+        const checkbox = document.getElementById(`${time}-chime-enabled`);
+        checkbox.addEventListener("change", () => settings[checkbox.id] = checkbox.checked);
+        checkbox.checked = settings[checkbox.id];
     }
 
     const volumeInput = document.getElementById("volume-input");
     audio.volume = settings["volume"] / 100;
     volumeInput.value = settings["volume"];
 
-    volumeInput.addEventListener("mouseup", () => {
-        settings["volume"] = audio.volume * 100;
-    });
-
     addDragEvent(volumeInput, () => audio.volume = volumeInput.value / 100);
+    volumeInput.addEventListener("mouseup", () => settings["volume"] = volumeInput.value);
+
     setSliderColors(volumeInput, "var(--accent)", "grey");
 
 })();

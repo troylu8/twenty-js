@@ -36,6 +36,12 @@ page-tab[active], button {
 
 button, button:active {
     border: none;
+    display: flex;
+}
+
+svg {
+    align-self: center;
+    justify-self: center;
 }
 
 page-main {
@@ -74,4 +80,3 @@ p {
     left: 50%;
     transform: translateX(-50%)
 }
-
