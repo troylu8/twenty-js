@@ -1,0 +1,23 @@
+#help > p {
+    white-space: pre-line;
+}
+
+#shortcuts-grid {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px 5px;
+    align-items: center;
+}
+
+key-shortcut {
+    background-color: var(--accent);
+    color: white;
+    padding: 4px 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+
+    font-family: 'Courier New', Courier, monospace;
+
+    justify-self: end;
+}

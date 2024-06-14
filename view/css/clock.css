@@ -4,11 +4,19 @@
 
 #time {
     position: absolute;
-    background-color: lightcoral;
 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+#time > span {
+    font-size: 60px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#time > h-flex {
+    gap: 10px;
 }
 
 #status {

@@ -4,6 +4,7 @@
     <head>
         <link rel="stylesheet" href="css/clock.css">
         <link rel="stylesheet" href="css/settings.css">
+        <link rel="stylesheet" href="css/help.css">
         <link rel="stylesheet" href="css/general.css">
 
         <script type="module" src="../src/pages.js"></script>
@@ -24,14 +25,11 @@
         <page-main id="clock">
             
             <div id="time"> 
-                <span>0:00</span> 
+                <span>00:00</span> 
                 <h-flex center class="h-abs-center">
                     <button id="play"></button>
                     <button id="ff">
-                        <svg width="25px" height="25px" viewBox="0 0 24 24" fill="white">
-                            <path transform="translate(-3, 0)" d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z"/>
-                            <path transform="translate(3, 0)" d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z"/>
-                        </svg>
+                        ff
                     </button>
                 </h-flex>
             </div>
@@ -42,8 +40,9 @@
         
         <page-main id="settings" active>
             <v-flex>
+                <h1>durations</h1>
                 <time-input id="timeinput#working">
-                    <p>edit screen time</p>
+                    <p>screen time</p>
                     <h-flex center>
                         <input type="text" maxlength="2" size="2" class="time__sect">
                         <time-colon>:</time-colon>
@@ -54,7 +53,7 @@
                 </time-input>
 
                 <time-input id="timeinput#resting">
-                    <p>edit rest time</p>
+                    <p>rest time</p>
                     <h-flex center>
                         <input type="text" maxlength="2" size="2" class="time__sect">
                         <time-colon>:</time-colon>
@@ -65,7 +64,7 @@
                 </time-input>
 
                 <v-flex id="notifications">
-                    <h1>edit notifications</h1>
+                    <h1>notification text</h1>
                     <h-flex center>
                         <input type="checkbox" id="working-start-notif-enabled">
                         <input type="text" id="working-start-notif">
@@ -84,6 +83,9 @@
                     </h-flex>
                 </v-flex>
 
+
+                <h1>sound</h1>
+
                 <audio-input id="audioinput#start">
                     <h-flex center>
                         <input type="checkbox" id="start-chime-enabled">
@@ -100,7 +102,6 @@
                     </h-flex>
                 </audio-input>
 
-
                 <h-flex center>
                     <svg stroke="var(--accent)" width="25px" height="25px" viewBox="0 0 24 24" fill="none" stroke-width="2">
                         <path d="M16 9V9C17.2111 10.8167 17.2111 13.1833 16 15V15" stroke-linecap="round"/>
@@ -109,13 +110,17 @@
                     </svg>
                     <input id="volume-input" class="slider" type="range" min="0" value="50" max="100" />
                 </h-flex>
-
                 
             </v-flex>
         </page-main>
 
         <page-main id="help">
-            <p>the 20 20 20 rule blurb</p>
+            <p>
+                Meant to reduce eye strain from digital screens, the 20 20 20 rule says: every 20 minutes, look at something 20 feet away for 20 seconds.
+                <a href="https://www.allaboutvision.com/conditions/refractive-errors/what-is-20-20-20-rule/"> more info </a>
+
+                Time is displayed on system tray tooltip when minimized.
+            </p>
             <h1>keyboard shortcuts</h1>
             <div id="shortcuts-grid">
                 <key-shortcut> ctrl + alt + space </key-shortcut>

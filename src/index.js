@@ -58,13 +58,20 @@ app.whenReady().then(() => {
         function editTrayTooltip(e, tooltip) {
             tray.setToolTip(tooltip);
         }
-        function editTrayInfo(e, currStatus, paused) {
+        function editTrayInfo(e, currStatus, timerState) {
+            const prompt =  timerState === "paused"? "resume" :
+                            timerState === "running"? "pause" :
+                            "start"; //timerState === "idle" || timerState === "done"
+            
             tray.setContextMenu(
                 Menu.buildFromTemplate([
-                    {label: `${currStatus} ${paused? "(paused)" : ""}`, enabled: false},
+                    {
+                        label: `${currStatus} ${timerState === "paused"? "(paused)" : ""}`, 
+                        enabled: false
+                    },
                     {type: "separator"},
                     {
-                        label: paused? "resume" : "pause",
+                        label: prompt,
                         click: () => win.webContents.send("toggle")
                     },
                     {

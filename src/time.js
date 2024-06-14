@@ -150,9 +150,9 @@ settingsReady.on("ready", (settings) => {
         toggleBtn.click();
         const timeDisplay = getTimeDisplay(timer.getTime() / 1000);
         ipcRenderer.send("notification", 
-            ((timer.getState() === "paused")? "paused - " : "resumed - ") + timeDisplay
+            ((timer.getState() === "paused")? "paused - " : `${status} - `) + timeDisplay
         );
-        if (minimized) ipcRenderer.send("edit-tray-info", status, timer.getState() === "paused");
+        if (minimized) ipcRenderer.send("edit-tray-info", status, timer.getState());
     });
 
     ffBtn.addEventListener("click", () => {
@@ -168,13 +168,13 @@ settingsReady.on("ready", (settings) => {
     });
     ipcRenderer.on("ff", () => {
         ffBtn.click();
-        if (minimized) ipcRenderer.send("edit-tray-info", status, timer.getState() === "paused");
+        if (minimized) ipcRenderer.send("edit-tray-info", status, timer.getState());
     });
     
     let minimized = false;
     ipcRenderer.on("request-tray-info", () => {
         minimized = true;
-        ipcRenderer.send("edit-tray-info", status, timer.getState() === "paused");
+        ipcRenderer.send("edit-tray-info", status, timer.getState());
         ipcRenderer.send("edit-tray-tooltip", timeElem.textContent);
     });
     ipcRenderer.on("tray-destroyed", () => minimized = false);

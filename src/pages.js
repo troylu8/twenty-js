@@ -1,4 +1,4 @@
-
+const {shell} = require("electron");
 
 let activePage;
 for (const tab of document.querySelectorAll("page-tab")) {
@@ -14,5 +14,12 @@ for (const tab of document.querySelectorAll("page-tab")) {
         
         tab.setAttribute("active", true);
         document.getElementById(activePage).setAttribute("active", true);
+    });
+}
+
+for (const a of document.querySelectorAll("a")) {
+    a.addEventListener("click", (e) => {
+        shell.openExternal(a.getAttribute("href"));
+        e.preventDefault();
     });
 }
