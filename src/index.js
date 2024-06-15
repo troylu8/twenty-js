@@ -16,13 +16,17 @@ app.whenReady().then(() => {
 
 
     let notif;
+    let timeout;
     ipcMain.on("notification", (e, title, body) => {
-        if (notif) notif.close();
+        if (notif) {
+            notif.close();
+            clearTimeout(timeout);
+        } 
 
         notif = new Notification({title: title, body: body, silent: true});
 
         notif.show();
-        setTimeout(() => notif.close(), 3000);
+        timeout = setTimeout(() => notif.close(), 3000);
     });
 
 

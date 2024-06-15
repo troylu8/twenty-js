@@ -61,9 +61,8 @@ export let settings;
     }
 
     for (const time of ["start", "end"]) {
-        const audioInput = document.getElementById("audioinput#" + time);
-        
-        audioInput.querySelector("button").addEventListener("click", async () => {
+
+        document.getElementById("audioinput#" + time).querySelector("button").addEventListener("click", async () => {
             const dialog = await ipcRenderer.invoke("show-dialog", {
                 title: `edit ${time} chime`,
                 properties: ['openFile'],
@@ -80,11 +79,14 @@ export let settings;
             )
                 
             settings[time + "-chime"] = basename(dialog.filePaths[0]);
+            document.getElementById(time + "-chime").textContent = settings[time + "-chime"];
         });
 
         const checkbox = document.getElementById(`${time}-chime-enabled`);
         checkbox.addEventListener("change", () => settings[checkbox.id] = checkbox.checked);
         checkbox.checked = settings[checkbox.id];
+
+        document.getElementById(time + "-chime").textContent = settings[time + "-chime"];
     }
 
     const volumeInput = document.getElementById("volume-input");
@@ -94,7 +96,7 @@ export let settings;
     addDragEvent(volumeInput, () => audio.volume = volumeInput.value / 100);
     volumeInput.addEventListener("mouseup", () => settings["volume"] = volumeInput.value);
 
-    setSliderColors(volumeInput, "var(--accent)", "grey");
+    setSliderColors(volumeInput, "var(--accent)", "lightgray");
 
 })();
 

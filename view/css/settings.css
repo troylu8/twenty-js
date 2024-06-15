@@ -32,9 +32,6 @@ input[type='range']::-webkit-slider-thumb {
     border-radius: 2px;
 }
 
-:root {
-    --accent: blue;
-}
 input[type='checkbox'] {
     display: inline-block;
     visibility: hidden;

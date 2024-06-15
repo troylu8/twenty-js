@@ -1,5 +1,5 @@
 :root {
-    --accent: rgb(103, 107, 166);
+    --accent: rgb(19 81 114);
 }
 
 h-flex {
@@ -48,6 +48,7 @@ page-main {
     display: none;
     height: 100%;
     overflow-y: auto;
+    margin: 0 8px 8px 8px;
 }
 page-main[active] {
     display: block;
@@ -56,19 +57,21 @@ page-main[active] {
 #main-nav {
     display: flex;
     justify-content: space-between;
+    padding: 5px;
 }
 
 body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-
+    
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-
+    
+    margin: 0;
     user-select: none;
 }
 
