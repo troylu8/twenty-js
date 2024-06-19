@@ -73,6 +73,8 @@ body {
     
     margin: 0;
     user-select: none;
+
+    font-family: 'Trebuchet MS';
 }
 
 p {

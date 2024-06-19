@@ -4,6 +4,7 @@ app.whenReady().then(() => {
     const win = new BrowserWindow({
         width: 600,
         height: 400,
+        icon: __dirname + "/../view/twenty.ico",
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
@@ -12,8 +13,6 @@ app.whenReady().then(() => {
 
     win.loadFile('view/index.html');
     win.setMenu(null);
-    win.webContents.openDevTools();
-
 
     let notif;
     let timeout;
@@ -44,10 +43,16 @@ app.whenReady().then(() => {
         win.webContents.send("ff");
     });
 
+    win.webContents.on('before-input-event', (_, input) => {
+        if (input.type === 'keyDown' && input.key === 'F12') {
+            win.webContents.openDevTools({mode: "detach"});
+        }
+    });
+
     win.on("minimize", () => {
         win.hide();
 
-        const tray = new Tray("moonlight.ico");
+        const tray = new Tray(__dirname + "/../view/twenty.ico");
 
         function showWindow() {
             win.webContents.send("tray-destroyed");

@@ -60,7 +60,6 @@ class Timer {
             state = "paused";
             clearTimeout(timer);
             remainingTime = endTime - Date.now();
-            console.log("remaining", remainingTime);
 
             clearInterval(ticker);
             tilNextTick = interval - ((Date.now() - tickAnchor) % interval);
