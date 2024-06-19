@@ -94,7 +94,7 @@ export let settings;
     volumeInput.value = settings["volume"];
 
     addDragEvent(volumeInput, () => audio.volume = volumeInput.value / 100);
-    volumeInput.addEventListener("mouseup", () => settings["volume"] = volumeInput.value);
+    volumeInput.addEventListener("mouseup", () => settings["volume"] = Number(volumeInput.value));
 
     setSliderColors(volumeInput, "var(--accent)", "lightgray");
 

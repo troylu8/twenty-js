@@ -1,7 +1,7 @@
 {
-    "working-duration": 3605000,
-    "resting-duration": 3000,
-    "working-start-notif": "hdfgjo;",
+    "working-duration": 1200000,
+    "resting-duration": 20000,
+    "working-start-notif": "started working timer",
     "working-end-notif": "working session over",
     "resting-start-notif": "started resting timer",
     "resting-end-notif": "resting session over",
@@ -13,5 +13,5 @@
     "end-chime": "default end.mp3",
     "start-chime-enabled": true,
     "end-chime-enabled": true,
-    "volume": "57"
+    "volume": 24
 }
